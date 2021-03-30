@@ -1,8 +1,7 @@
 import torch.nn as nn
 import torch
 
-# from torch.logs import dataset
-from utils import intersection_over_union
+from model import intersection_over_union
 
 
 class Yolov3Loss(nn.Module):
