@@ -83,11 +83,66 @@ However, YOLO outperforms all other models when it comes to speed.
 
 
 # Implementation
-
-## Requirements
+[Comments and description of .py files are not done yet.]
 
 ## Dataset
 
+The model can be trained on either The PASCAL Visual Object Classes or MS-COCO dataset, depending on performance of your machine. Training on MS-COCO can be more computitionaly expensive. I trained the model on VOC dataset and I have  created a weights file that you can use to test the model. Its about 700 Mb, I can send you the file upon your request.
+
+## Requirements
+
+
+Python 3.8.6, Torch 1.8.1, OpenCv and other common packages listed in `requirements.txt`.
+
+You can use `$ pip install -r requirements.txt` inside your virtual environment to install them all or do it manually.
+
+To download the dataset to train the model, you need to download one of these datasets:
+
+#### 1. MS-COCO Dataset
+
+Create a folder called dataset in the root level (where the train.py is). Inside the dataset folder, follow the instructions on this page: http://cocodataset.org/#download
+
+    mkdir val
+    mkdir train
+    mkdir test
+    gsutil -m rsync gs://images.cocodataset.org/val2017 val
+    gsutil -m rsync gs://images.cocodataset.org/train2017 train
+    gsutil -m rsync gs://images.cocodataset.org/test2017 test
+    
+Also, download the annotations as well:
+
+    wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+    unzip annotations_trainval2017.zip
+    
+
+#### 2. VOC 2007 Dataset
+
+In the dataset directory:
+
+    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
+    tar -xvf VOCtrainval_06-Nov-2007.tar
+    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar
+    tar -xvf VOCtest_06-Nov-2007.tar
+    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtestnoimgs_06-Nov-2007.tar
+
+
 ## Conclusion
 
+YOLOv3, without a doubt, is one of the most impactful models in computer vision history. It created many opportunities for people in the field to use it to their advantage and researchers to get a new point of view. A hands-on project on YOLOv3 gave me a great understanding of convolution neural networks in general and many state-of-the-art methods. Moreover, I want to push it further by combining it with an LSTM(long short-term memory) algorithm like Deep SORT and create a object and pedestrian tracker. All-in-all I hope others find this project useful and make use of this in their journey. 
+
 ## Refrences
+
+   ### Papers
+   
+> - [YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767)
+> - [You Only Look Once: Unified, Real-Time Object Detection](https://arxiv.org/pdf/1506.02640)
+> - [Object Detection and Tracking Algorithms for
+Vehicle Counting: A Comparative Analysis](https://arxiv.org/ftp/arxiv/papers/2007/2007.16198.pdf)
+> - [YOLO9000: Better, Faster, Stronger](https://arxiv.org/pdf/1612.08242)
+
+  ### other refrences
+
+> - [YOLOv3 — Real-time object detection](https://medium.com/analytics-vidhya/yolov3-real-time-object-detection-54e69037b6d0)
+> - [Dive Really Deep into YOLO v3: A Beginner’s Guide](https://towardsdatascience.com/dive-really-deep-into-yolo-v3-a-beginners-guide-9e3d2666280e)
+> - [What’s new in YOLO v3?](https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b)
+> - [Real-time Object Detection with YOLO, YOLOv2 and now YOLOv3](https://jonathan-hui.medium.com/real-time-object-detection-with-yolo-yolov2-28b1b93e2088)
