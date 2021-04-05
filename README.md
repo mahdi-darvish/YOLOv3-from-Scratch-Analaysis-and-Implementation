@@ -83,7 +83,7 @@ However, YOLO outperforms all other models when it comes to speed.
 
 
 # Implementation
-[Comments and description of .py files are not done yet.]
+[Comments and description of python files are not done yet.]
 
 ## Dataset
 
